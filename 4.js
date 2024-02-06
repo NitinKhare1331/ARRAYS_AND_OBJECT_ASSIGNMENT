@@ -18,5 +18,28 @@ function updateInfo(id,updation){
     }
 }
 
+function deleteInfo(id){
+    students.filter(student => student.id !== id);
+}
+
+function listAllStudents() {
+    console.log("List of all students:");
+    students.forEach(student => {
+    console.log(`${student.name} ${student.lastName}, Age: ${student.age}, Grade: ${student.grade}`);
+    });
+}
+function findStudentsByGrade(grade) {
+    return students.filter(student => student.grade === grade);
+}
+
+function calculateAverageAge() {
+    const totalAge = students.reduce((acc, student) => acc + student.age, 0);
+    return totalAge / students.length;
+}
 updateInfo(2,{age:24});
 console.log(students);
+deleteInfo(3);
+console.log(students);
+listAllStudents()
+console.log(findStudentsByGrade("A"));
+console.log(calculateAverageAge());
